@@ -4,6 +4,7 @@
 [submodule "src/jtag/drivers/libjaylink"]
 	path = src/jtag/drivers/libjaylink
 	url = https://gitlab.zapb.de/libjaylink/libjaylink.git
+
 [submodule "submodules/libswd"]
 	path = submodules/libswd
 	url = https://github.com/cederom/LibSWD.git
