@@ -13,6 +13,7 @@
 #endif
 
 #include "helper/command.h"
+#include "transport/swd.h"
 
 /**
  * Wrapper for transport lifecycle operations.

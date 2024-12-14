@@ -392,6 +392,10 @@ AC_ARG_ENABLE([internal-jimtcl],
   AS_HELP_STRING([--disable-internal-jimtcl], [Disable building internal jimtcl]),
   [use_internal_jimtcl=$enableval], [use_internal_jimtcl=yes])
 
+AC_ARG_ENABLE(internal-libswd,
+  AS_HELP_STRING([--disable-internal-libswd], [Disable building internal libswd]),
+  [use_internal_libswd=$enableval], [use_internal_libswd=yes])
+
 AC_ARG_ENABLE([jimtcl-maintainer],
   AS_HELP_STRING([--enable-jimtcl-maintainer], [Enable maintainer mode when building internal jimtcl]),
   [use_internal_jimtcl_maintainer=$enableval], [use_internal_jimtcl_maintainer=no])
@@ -615,6 +619,14 @@ AS_IF([test "x$use_internal_jimtcl" = "xyes"], [
       AC_CHECK_HEADER([jim.h], [], [
         AC_MSG_ERROR([jimtcl is required but not found via pkg-config and system includes])
       ])
+  ])
+])
+
+AS_IF([test "x$use_internal_libswd" = "xyes"], [
+  AS_IF([test -f "$srcdir/submodules/libswd/configure.ac"], [
+    AX_CONFIG_SUBDIR_OPTION([submodules/libswd])
+  ],[
+    AC_MSG_ERROR([libswd not found, run git submodule init and git submodule update.])
   ])
 ])
 

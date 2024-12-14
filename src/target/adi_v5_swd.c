@@ -41,7 +41,8 @@
 #include <transport/transport.h>
 #include <jtag/interface.h>
 
-#include <jtag/swd.h>
+//#include <jtag/swd.h>
+#include <transport/swd.h>
 
 /* for debug, set do_sync to true to force synchronous transfers */
 static bool do_sync;

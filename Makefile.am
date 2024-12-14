@@ -36,6 +36,10 @@ EXTRA_DIST += jimtcl/configure.gnu
 DISTCLEANFILES += jimtcl/jsmn/jsmn.o
 endif
 
+if INTERNAL_LIBSWD
+SUBDIRS += submodules/libswd
+endif
+
 # common flags used in openocd build
 AM_CFLAGS = $(GCC_WARNINGS)
 AM_LDFLAGS =

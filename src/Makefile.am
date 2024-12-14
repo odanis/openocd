@@ -1,5 +1,10 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
+if INTERNAL_LIBSWD
+AM_CPPFLAGS += -I$(top_srcdir)/submodules/libswd/src \
+			-I$(top_builddir)/submodules/libswd/src
+endif
+
 noinst_LTLIBRARIES += %D%/libopenocd.la
 bin_PROGRAMS += %D%/openocd
 
@@ -22,6 +27,12 @@ if HAVE_JIMTCL_PKG_CONFIG
 else
 %C%_openocd_LDADD += -ljim
 endif
+endif
+
+if INTERNAL_LIBSWD
+%C%_openocd_LDADD += $(top_builddir)/submodules/libswd/src/libswd.la
+else
+o%C%_penocd_LDADD += -lswd
 endif
 
 %C%_libopenocd_la_CPPFLAGS =
